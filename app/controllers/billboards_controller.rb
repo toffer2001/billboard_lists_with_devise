@@ -3,7 +3,8 @@ class BillboardsController < ApplicationController
   before_action :set_billboard, only: [:show, :edit, :update, :destroy]
   before_action :set_song, only: [:show]
   def index
-    @billboards = Billboard.all.order(:name)
+    @billboards = current_user.billboards.all.order(:name)
+    # @billboards = Billboard.all.order(:name)
 
   end
 
@@ -12,18 +13,20 @@ class BillboardsController < ApplicationController
   end
 
   def new
-    @billboard = Billboard.new
+    @billboard = current_user.billboards.new
+    # @billboard = Billboard.new
     render partial: 'form'
 
   end
 
   def create
-    @billboard = Billboard.new(billboard_params)
+    @billboard = current_user.billboards.new(billboard_params)
+    # @billboard = Billboard.new(billboard_params)
 
     if @billboard.save
       redirect_to billboards_path
     else
-      render :new
+      render partial: 'form'
     end
   end
 
@@ -51,7 +54,8 @@ class BillboardsController < ApplicationController
   private
 
   def set_billboard
-    @billboard = Billboard.find(params[:id])
+    @billboard = current_user.billboards.find(params[:id])
+    # @billboard = Billboard.find(params[:id])
   end
 
   def billboard_params
