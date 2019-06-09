@@ -1,0 +1,21 @@
+<h1><%= @billboard.name %></h1>
+      <br />
+      <table class="table table-hover">
+        <thead>
+          <tr>
+          <th scope="col">Position</th>
+            <th scope="col">Song Title</th>
+          </tr>
+        </thead>
+        <tbody>
+
+      <% @songs.each do |song| %>
+        <tr>
+          <td><%= song.rank %></td>
+          <td><%= link_to song.title, billboard_song_path(@billboard, song) %></td>
+        </tr>
+      <% end %>
+        </tbody>
+      </table>
+
+<%= link_to 'Add New Song', new_billboard_song_path(@billboard) %>

@@ -1,0 +1,15 @@
+
+[1mFrom:[0m C:/Users/KristofferKeene/Dropbox/Personal/DevPointLabs/Week03-Rails/billboard_project/billboards/app/views/songs/_form.html.erb @ line 27 ActionView::CompiledTemplates#_app_views_songs__form_html_erb__588508415_111661460:
+
+    [1;34m22[0m:       </div>
+    [1;34m23[0m:     </nav>
+    [1;34m24[0m: <div class="container">
+    [1;34m25[0m: <h1><%= @song.id ? 'Edit Song: ' + @song.title : 'Create Song' %></h1>
+    [1;34m26[0m: <br />
+ => [1;34m27[0m: <% binding.pry %>
+    [1;34m28[0m: <%= form_with(model: [@song, @billboard], local: true ) do |s| %>
+    [1;34m29[0m:   <div class="form-group">
+    [1;34m30[0m:     <%= s.label :title %>
+    [1;34m31[0m:     <%= s.text_field :title, required: true, autofocus: true %>
+    [1;34m32[0m:   </div>
+

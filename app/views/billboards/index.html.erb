@@ -1,0 +1,24 @@
+<h1>Billboards Top Songs</h1>
+
+<% # link_to 'Add New Billboard', new_billboard_path %>
+
+<br />
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Billboard Name</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+
+<% @billboards.each do |b| %>
+    <tr>
+      <td><%= link_to b.name, billboard_songs_path(b) %></td>
+      <td><%= link_to 'Edit', edit_billboard_path(b) %></td>
+      <td><%= link_to 'Delete', b, method: :delete %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>

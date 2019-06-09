@@ -1,0 +1,9 @@
+<h1><%= @billboard.name %> - <%= @song.title %></h1>
+<br />
+<ul class="list-group">
+<li class="list-group-item"><%= link_to 'Edit Song', edit_billboard_song_path([@billboard, @song]) %></li>
+<li class="list-group-item"><%= link_to 'Delete Song', [@billboard, @song], method: :delete %></li>
+<li class="list-group-item"><%= link_to 'Back to Songs', billboard_songs_path(@billboard) %></li>
+
+
+</ul>
